@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Devs</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark" style="width: auto;">
+        <div class="container-fluid p-2">
+          <a class="navbar-brand" href="wendell.html">Wendell Cruzeiro</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Início</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Caderno Digital
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="aula1.html">Aulas 1</a></li>
+                  <li><hr class="dropdown-divider "></li>
+                  <li><a class="dropdown-item" href="aula2.html">Aulas 2</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="aula3.html">Aulas 3</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="aula4.html">Aulas 4</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Notas
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="primeira.html">1ª Série</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="segunda.html">2ª Série</a></li>
+
+                </ul>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Robótica</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2 bg-light" type="search" placeholder="Estou com sorte!" aria-label="Search">
+              <button class="btn btn-outline-success text-bg-warning" type="submit">Pesquise</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <div class="campo">
+        <h1 id="titulo">Cadastro de Devs</h1>
+        <p id="subtitulo">Complete suas informações</p>
+        <br>
+    </div>
+    
+    <form action="">
+        <fieldset class="grupo">
+            <div class="campo">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome">
+            </div>
+            <div class="campo">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" name="sobrenome" id="sobrenome">
+            </div>
+        </fieldset>
+        <div class="campo">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+        <div class="campo">
+            <label for="">De qual lado da aplicação você desenvolve?</label>
+            <label for="">
+                <input type="radio" name="devweb" value="frontend">Front-End
+            </label>
+            <label for="">
+                <input type="radio" name="devweb" value="backend">Back-End
+            </label>
+            <label for="">
+                <input type="radio" name="devweb" value="fullstack">FullStack
+            </label>
+        </div>
+        <div class="campo">
+            <label for="">Senioridade</label>
+            <select name="" id="senioridade">
+                <option selected disabled value="">Escolha</option>
+                <option value="">Júnior</option>
+                <option value="">Pleno</option>
+                <option value="">Sênior</option>
+            </select>
+        </div>
+        <fieldset class="grupo">
+            <div class="campo">
+                <label for="">Selecione as tecnologias que utiliza</label><br><br>
+                <input type="checkbox" id="tec1" name="tec1" value="HTML">
+                <label for="tec1">HTML</label>
+                <input type="checkbox" id="tec2" name="tec2" value="CSS">
+                <label for="tec2">CSS</label>
+                <input type="checkbox" id="tec3" name="tec3" value="JAVA SCRIPT">
+                <label for="tec3">JAVA SCRIPT</label>
+                <input type="checkbox" id="tec4" name="tec4" value="PHP">
+                <label for="tec4">PHP</label>
+                <input type="checkbox" id="tec5" name="tec5" value="PYTHON">
+                <label for="tec5">PYTHON</label>
+                <input type="checkbox" id="tec6" name="tec6" value="C#">
+                <label for="tec6">C#</label>
+                <input type="checkbox" id="tec7" name="tec7" value="JAVA">
+                <label for="tec7">JAVA</label>
+
+            </div>
+        </fieldset>
+        <div class="campo">
+            <br><br>
+            <label>Conte um pouco sobre a sua história</label>
+            <textarea name="experiencia" id="experiencia" rows="6" style="width: 26cm;"></textarea>
+        </div>
+        <button type="submit">Concluído</button>
+    </form>
+
+    
+    
+
+
+    <section class="container-fluid p-2 bg-dark text-center mx-auto" style="width: auto;">
+      <footer>
+          <p class="container-fluid text-center text-white-50" style="width: auto;">Wendell ©ruzeiro</p>
+       </footer>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

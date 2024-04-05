@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de funcionários</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>       
+        input{
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark" style="width: auto;">
+        <div class="container-fluid p-2">
+          <a class="navbar-brand" href="wendell.html">Wendell Cruzeiro</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Início</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Caderno Digital
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="aula1.html">Aulas 1</a></li>
+                    <li><hr class="dropdown-divider "></li>
+                    <li><a class="dropdown-item" href="aula2.html">Aulas 2</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="aula3.html">Aulas 3</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="aula4.html">Aulas 4</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                  </ul>
+                </li>
+  
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Notas
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="primeira.html">1ª Série</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="segunda.html">2ª Série</a></li>
+  
+                  </ul>
+              
+
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Robótica</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2 bg-light" type="search" placeholder="Estou com sorte!" aria-label="Search">
+              <button class="btn btn-outline-success text-bg-warning" type="submit">Pesquise</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <h1>Cadastro de funcionários</h1>
+    
+    <form id="funcionarioForm">
+        <table>
+            <tr>
+                <td><label for="nome">Nome:</label></td>
+                <td><input type="text" id="nome" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="idade">Idade:</label></td>
+                <td><input type="number" id="idade" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="cargo">Cargo:</label></td>
+                <td><input type="text" id="cargo" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="departamento">Departamento:</label></td>
+                <td><input type="text" id="departamento"></td>
+            </tr>
+
+            <tr>
+                <td><label for="linguagem">Linguagem de Programação:</label></td>
+                <td><input type="text" id="linguagem"></td>
+            </tr>   
+            
+            <tr>
+                <td></td>
+                <td><button type="button" onclick="criarFuncionario()">Criar Funcionário</button></td>
+                
+            </tr>
+
+        </table> 
+    </form>
+<br>
+    <div id="resultado"></div>
+
+    <script>
+        class Funcionario {
+            constructor(nome, idade, cargo) {
+                this.nome = nome;
+                this.idade = idade;
+                this.cargo = cargo;
+            }
+
+            seApresentar() {
+                return Olá, meu nome é ${this.nome} e tenho ${this.idade} anos. Sou um ${this.cargo}.;
+            }
+
+            trabalhar() {
+                return Realizando as tarefas do cargo: ${this.cargo};
+            }
+        }
+
+        class Gerente extends Funcionario {
+            constructor(nome, idade, cargo, departamento) {
+                super(nome, idade, cargo);
+                this.departamento = departamento;
+            }
+
+            gerenciar() {
+                return Gerenciando o departamento de ${this.departamento}.;
+            }
+        }
+
+        class Desenvolvedor extends Funcionario {
+            constructor(nome, idade, cargo, linguagem) {
+                super(nome, idade, cargo);
+                this.linguagem = linguagem;
+            }
+
+            programar() {
+                return Programando em ${this.linguagem}.;
+            }
+        }
+
+        function criarFuncionario() {
+            try {
+                const nome = document.getElementById('nome').value;
+                const idade = parseInt(document.getElementById('idade').value, 10);
+                const cargo = document.getElementById('cargo').value;
+
+                if (!nome || isNaN(idade) || !cargo) {
+                    throw new Error('Preencha todos os campos obrigatórios.');
+                }
+
+                const departamento = document.getElementById('departamento').value;
+                const linguagem = document.getElementById('linguagem').value;
+
+                let funcionario;
+
+                if (cargo.toLowerCase() === 'gerente') {
+                    funcionario = new Gerente(nome, idade, cargo, departamento);
+                } else if (cargo.toLowerCase() === 'desenvolvedor') {
+                    funcionario = new Desenvolvedor(nome, idade, cargo, linguagem);
+                } else {
+                    throw new Error('Cargo inválido. Apenas Gerente e Desenvolvedor são permitidos.');
+                }
+
+                exibirResultado(funcionario.seApresentar() + ' ' + funcionario.trabalhar());
+
+                if (funcionario instanceof Gerente) {
+                    exibirResultado(funcionario.gerenciar());
+                } else if (funcionario instanceof Desenvolvedor) {
+                    exibirResultado(funcionario.programar());
+                }
+
+            } catch (error) {
+                exibirErro(error.message);
+            }
+        }
+
+        function exibirResultado(mensagem) {
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML += <p>${mensagem}</p>;
+        }
+
+        function exibirErro(mensagem) {
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = <p style="color: red;">Erro: ${mensagem}</p>;
+        }
+    </script>
+
+<section class="container-fluid p-2 bg-dark text-center mx-auto" style="width: auto;">
+    <footer>
+        <p class="container-fluid text-center text-white-50" style="width: auto;">Wendell ©ruzeiro</p>
+     </footer>
+  </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
